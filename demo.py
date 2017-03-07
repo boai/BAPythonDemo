@@ -133,8 +133,8 @@
 # # {'博爱', '石少', '晓峰'}
 
 # set可以进行集合运算
-a = set('aabbccf')
-b = set('abcd')
+# a = set('aabbccf')
+# b = set('abcd')
 # # a 
 # # {'a', 'b', 's', 'f'}
 # # a和b的差集
@@ -150,32 +150,57 @@ b = set('abcd')
 # a和b的交集
 # c = a & b
 # print(c)
-# {'c', 'a', 'b'}
+# # {'c', 'a', 'b'}
 
 # a和b中不同时存在的元素
-c = a ^ b
-print(c)
+# c = a ^ b
+# print(c)
+# # {'d', 'f'}
 
 
+# Dictionaries（字典）
 
+# 字典（dictionary）是Python中另一个非常有用的内置数据类型。
+# 字典是一种映射类型（mapping type），它是一个无序的键 : 值对集合。
+# 关键字必须使用不可变类型，也就是说list和包含可变类型的tuple不能做关键字。
+# 在同一个字典中，关键字还必须互不相同。
 
+# dic = {'boai':16, '石少':18}
+# # print(dic)
+# # # {'boai': 16, '石少': 18}
+# # print(dic['boai'])
+# # # 16
 
+# # 添加一个键值对
+# dic['tom'] = 20
+# # print(dic)
+# # {'boai': 16, '石少': 18, 'tom': 20}
 
+# # 返回所有key组成的list
+# print(list(dic.keys()))
+# # ['boai', '石少', 'tom']
 
+# # 按key排序
+# dic['mars'] = 17
+# # print(dic)
+# # {'boai': 16, '石少': 18, 'tom': 20, 'mars': 17}
+# print(sorted(dic.keys()))
+# # ['boai', 'mars', 'tom', '石少']
+# print(sorted(dic.values()))
+# # [16, 17, 18, 20]
 
+# # 成员测试
+#  # bool a = 'tom' in dic
+# print('tom' in dic)
+# # True
+# print('mars' not in dic)
+# # False
 
-
-
-
-
-
-
-
-
-
-
-
-
+# 另外，字典类型也有一些内置的函数，例如clear()、keys()、values()等。
+# 注意：
+# 1、字典是一种映射类型，它的元素是键值对。
+# 2、字典的关键字必须为不可变类型，且不能重复。
+# 3、创建空字典使用{ }。
 
 
 
