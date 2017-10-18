@@ -53,6 +53,54 @@ print('d =',d)
 print('e =',e)
 print('f =',f)
 
+str = 'hello，world！'
+
+# 输出完整字符串
+print(str)
+# 输出字符串中的第一个字符
+print(str[0])
+# 输出字符串中第三个至第五个之间的字符串
+print(str[0:5])
+# 输出从第三个字符开始的字符串
+print(str[2:])
+# 输出字符串两次
+print(str * 2)
+# 输出连接的字符串
+print(str + 'Test')
+
+'''
+Python列表
+
+List（列表） 是 Python 中使用最频繁的数据类型。
+列表可以完成大多数集合类的数据结构实现。它支持字符，数字，字符串甚至可以包含列表（所谓嵌套）。
+列表用[ ]标识。是python最通用的复合数据类型。看这段代码就明白。
+列表中的值得分割也可以用到变量[头下标:尾下标]，就可以截取相应的列表，从左到右索引默认0开始的，从右到左索引默认-1开始，下标可以为空表示取到头或尾。
+加号（+）是列表连接运算符，星号（*）是重复操作。如下实例：
+'''
+list = ['boai', 123, 5.20, 'love']
+list2 = ['dandan', 'ai']
+
+print(list)
+print(list[0])
+print(list[1:2])
+print(list[2:])
+print(list * 2)
+print(list + list2)
+
+'''
+Python字典
+
+字典(dictionary)是除列表以外python之中最灵活的内置数据结构类型。列表是有序的对象集合，字典是无序的对象集合。
+两者之间的区别在于：字典当中的元素是通过键来存取的，而不是通过偏移存取。
+字典用"{ }"标识。字典由索引(key)和它对应的值value组成。
+'''
+dict = {"name":"boai", "age":18}
+print(dict['name'])
+print(dict.keys())
+print(dict.values())
+
+
+
 
 
 
