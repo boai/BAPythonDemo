@@ -1,8 +1,12 @@
 
 import time
 import calendar
+import math
 
-from BAKit_Common import *
+
+# from BAKit_Common import *
+import BAKit_Common
+
 
 # 第一个 Python 程序
 
@@ -430,14 +434,38 @@ def printStr(str):
 
 printStr('This is a test function!')
 
-# 这是从另一个封装文件【BAKit_Common.py】读取的函数：
-currentTime = ba_getCurrentTimeWithYMDHMS()
+'''
+# 这是从另一个封装文件【BAKit_Common.py】读取的函数，注意：如果使用另外一个文件的方法，必须要先导入头文件，
+需要把命令放在脚本的顶端，Python 中导入头文件有两种方法：
+
+第一种方法：
+# import BAKit_Common
+
+具体使用方法：BAKit_Common.ba_getCurrentTimeWithYMDHMS() 来调用里面的 ba_getCurrentTimeWithYMDHMS() 方法
+
+第二种方法：
+# from BAKit_Common import *
+具体使用方法：ba_getCurrentTimeWithYMDHMS() 来调用里面的 ba_getCurrentTimeWithYMDHMS() 方法
+
+两种方法都可以正常使用，看你喜欢那种方式，个人建议第一种，更加直观的显示出方法来源！
+
+'''
+currentTime = BAKit_Common.ba_getCurrentTimeWithYMDHMS()
 
 # 这是从另一个封装文件【BAKit_Common.py】读取的函数：
-currentCalendar = ba_getCurrentCalendarWithMonth(2017, 10)
+currentCalendar = BAKit_Common.ba_getCurrentCalendarWithMonth(2017, 10)
 
-ba_algorithm_sum(10, 15)
+# 这是从另一个封装文件【BAKit_Common.py】读取的函数：
+BAKit_Common.ba_algorithm_sum(10, 15)
 
+'''
+dir()函数
+
+dir()函数一个排好序的字符串列表，内容是一个模块里定义过的名字。
+返回的列表容纳了在一个模块里定义的所有模块，变量和函数。如下一个简单的实例：
+'''
+content = dir(math)
+print(content)
 
 
 
