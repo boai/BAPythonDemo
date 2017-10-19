@@ -1,4 +1,8 @@
 
+import time
+import calendar
+
+from BAKit_Common import *
 
 # 第一个 Python 程序
 
@@ -323,6 +327,125 @@ print(a)
 
 b = "My name is %s and weight is %d kg!" % ('boai', 50)
 print(b)
+
+
+'''
+Python三引号（triple quotes）
+
+python中三引号可以将复杂的字符串进行复制:
+python三引号允许一个字符串跨多行，字符串中可以包含换行符、制表符以及其他特殊字符。
+三引号的语法是一对连续的单引号或者双引号（通常都是成对的用）。
+
+三引号让程序员从引号和特殊字符串的泥潭里面解脱出来，自始至终保持一小块字符串的格式是所谓的WYSIWYG（所见即所得）格式的。
+一个典型的用例是，当你需要一块HTML或者SQL时，这时用字符串组合，特殊字符串转义将会非常的繁琐。
+'''
+var = '''
+hello
+boai！
+'''
+print(var)
+
+loginHtml = '''
+<HTML><HEAD><TITLE>
+Friends CGI Demo</TITLE></HEAD>
+<BODY><H3>ERROR</H3>
+<B>%s</B><P>
+<FORM><INPUT TYPE=button VALUE=Back ONCLICK="window.history.back()"></FORM>
+</BODY></HTML>
+'''
+print(loginHtml)
+
+tuple = (20)
+print(tuple)
+
+tuple1 = (2, 5, 8, 20)
+print('tuple1[1] = ', tuple1[1])
+
+'''
+Python 日期和时间
+
+Python 程序能用很多方式处理日期和时间，转换日期格式是一个常见的功能。
+Python 提供了一个 time 和 calendar 模块可以用于格式化日期和时间。
+时间间隔是以秒为单位的浮点小数。
+每个时间戳都以自从1970年1月1日午夜（历元）经过了多长时间来表示。
+Python 的 time 模块下有很多函数可以转换常见日期格式。如函数time.time()用于获取当前时间戳, 如下实例:
+'''
+ticks = time.time()
+print('当前时间的时间戳：',ticks)
+
+var = time.localtime(time.time())
+print('当前时间的时间：',var)
+
+loaclTime = time.asctime(time.localtime(time.time()))
+print('当前时间的时间：',loaclTime)
+
+'''
+python中时间日期格式化符号：
+%y 两位数的年份表示（00-99）
+%Y 四位数的年份表示（000-9999）
+%m 月份（01-12）
+%d 月内中的一天（0-31）
+%H 24小时制小时数（0-23）
+%I 12小时制小时数（01-12）
+%M 分钟数（00=59）
+%S 秒（00-59）
+%a 本地简化星期名称
+%A 本地完整星期名称
+%b 本地简化的月份名称
+%B 本地完整的月份名称
+%c 本地相应的日期表示和时间表示
+%j 年内的一天（001-366）
+%p 本地A.M.或P.M.的等价符
+%U 一年中的星期数（00-53）星期天为星期的开始
+%w 星期（0-6），星期天为星期的开始
+%W 一年中的星期数（00-53）星期一为星期的开始
+%x 本地相应的日期表示
+%X 本地相应的时间表示
+%Z 当前时区的名称
+%% %号本身
+'''
+# 格式化成2016-03-20 11:45:39形式
+currentTime = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())
+print('当前时间的时间：',currentTime)
+
+# 将格式字符串转换为时间戳
+var = time.asctime(time.localtime(time.time()))
+print(time.mktime(time.strptime(var, "%a %b %d %H:%M:%S %Y")))
+
+
+'''
+获取某月日历
+
+Calendar模块有很广泛的方法用来处理年历和月历，例如打印某月的月历：
+
+time、日历 这块儿的详细函数：https://www.w3cschool.cn/python/python-date-time.html
+'''
+
+cal = calendar.month(2017, 10)
+print("以下输出2017年10月份的日历:\n", cal)
+
+def printStr(str):
+    print(str)
+    return
+
+printStr('This is a test function!')
+
+# 这是从另一个封装文件【BAKit_Common.py】读取的函数：
+currentTime = ba_getCurrentTimeWithYMDHMS()
+print(currentTime)
+
+# 这是从另一个封装文件【BAKit_Common.py】读取的函数：
+currentCalendar = ba_getCurrentCalendarWithMonth(2017, 10)
+print(currentCalendar)
+
+
+
+
+
+
+
+
+
 
 
 
