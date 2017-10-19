@@ -432,12 +432,11 @@ printStr('This is a test function!')
 
 # 这是从另一个封装文件【BAKit_Common.py】读取的函数：
 currentTime = ba_getCurrentTimeWithYMDHMS()
-print(currentTime)
 
 # 这是从另一个封装文件【BAKit_Common.py】读取的函数：
 currentCalendar = ba_getCurrentCalendarWithMonth(2017, 10)
-print(currentCalendar)
 
+ba_algorithm_sum(10, 15)
 
 
 
