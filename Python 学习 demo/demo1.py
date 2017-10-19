@@ -267,9 +267,62 @@ for letter in 'Python':
         continue
     print('当前字母 :', letter)
 
+'''
+Python pass 语句
+
+Python pass是空语句，是为了保持程序结构的完整性。
+pass 不做任何事情，一般用做占位语句。
+'''
+for letter in 'Python':
+    if letter == 'h':
+        pass
+        print('这是 pass 块')
+    print('当前字母 :', letter)
+
+var1 = 'Python'
+var2 = 'Hello, world'
+
+print('var1[0]：', var1[0])
+print('var2[0:5]：', var2[0:5])
+
+var3 = 'Hello, world'
+print('更新字符串 ：', var3[:7] + 'boai！')
 
 
+'''
+Python转义字符
 
+在需要在字符中使用特殊字符时，python用反斜杠(\)转义字符。如下表：
+转义字符	描述
+\(在行尾时)	续行符
+\\	反斜杠符号
+\'	单引号
+\"	双引号
+\a	响铃
+\b	退格(Backspace)
+\e	转义
+00	空
+\n	换行
+\v	纵向制表符
+\t	横向制表符
+\r	回车
+\f	换页
+\oyy	八进制数，yy代表的字符，例如：\o12代表换行
+\other	其它的字符以普通格式输出
+'''
+
+'''
+Python字符串格式化
+
+Python 支持格式化字符串的输出 。尽管这样可能会用到非常复杂的表达式，但最基本的用法是将一个值插入到一个有字符串格式符 %s 的字符串中。
+在 Python 中，字符串格式化使用与 C 中 sprintf 函数一样的语法。
+如下实例：
+'''
+a = 'my name is %(name)s, age is %(age)s' % {'name': 'boai', 'age':18}
+print(a)
+
+b = "My name is %s and weight is %d kg!" % ('boai', 50)
+print(b)
 
 
 
