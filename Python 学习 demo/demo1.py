@@ -2,11 +2,12 @@
 import time
 import calendar
 import math
+import os
 
 
 # from BAKit_Common import *
 import BAKit_Common
-
+import BAKit_BAFileManager
 
 # 第一个 Python 程序
 
@@ -466,6 +467,44 @@ dir()函数一个排好序的字符串列表，内容是一个模块里定义过
 '''
 content = dir(math)
 print(content)
+
+
+# str = input('please enter：')
+# print('输入的结果：', str)
+
+# 打开一个文件
+fo = open('test.txt', 'r')
+
+print('文件名：', fo.name)
+print('是否已关闭：', fo.closed)
+print('访问模式：', fo.mode)
+# print('末尾是否强制加空格：', fo.softspace)
+
+# fo.write('测试文件写入内容！')
+# 关闭打开的文件
+fo.closed
+
+# 给出当前的目录
+os.getcwd()
+
+str = BAKit_BAFileManager.ba_fileManager_read('test.txt')
+print(str)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

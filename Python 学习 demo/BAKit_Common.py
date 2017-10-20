@@ -1,6 +1,20 @@
+#!/usr/bin/env python
+# encoding: utf-8
+
+"""
+@author: 博爱
+@contact: QQ：137361770
+@software: PyCharm
+@file: BAKit_Common.py
+@time: 2017/10/19 0001 13:14
+"""
+
+'''
+一些公共工具类
+'''
 
 import time, calendar
-
+import os
 
 # 格式当前日期时间，例如：2017-10-19 14:24:41
 def ba_getCurrentTimeWithYMDHMS():
