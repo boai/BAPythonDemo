@@ -501,10 +501,23 @@ path = BAKit_BAFileManager.ba_fileManager_getcwd()
 # BAKit_BAFileManager.ba_fileManager_chdir('newFolder')
 # path = BAKit_BAFileManager.ba_fileManager_getcwd()
 
-BAKit_BAFileManager.ba_fileManager_rmdir('newFolder')
+# BAKit_BAFileManager.ba_fileManager_rmdir('newFolder')
 
 
-
+'''
+try的工作原理是，当开始一个try语句后，python就在当前程序的上下文中作标记，这样当异常出现时就可以回到这里，try子句先执行，接下来会发生什么依赖于执行时是否出现异常。
+如果当try后的语句执行时发生异常，python就跳回到try并执行第一个匹配该异常的except子句，异常处理完毕，控制流就通过整个try语句（除非在处理异常时又引发新的异常）。
+如果在try后的语句里发生了异常，却没有匹配的except子句，异常将被递交到上层的try，或者到程序的最上层（这样将结束程序，并打印缺省的出错信息）。
+如果在try子句执行时没有发生异常，python将执行else语句后的语句（如果有else的话），然后控制流通过整个try语句。
+'''
+try:
+    fl = open('test2.txt', 'w')
+    fl.write('ceshi')
+except IOError:
+    print("Error: can\'t find file or read data")
+else:
+    print("Written content in the file successfully")
+    fl.closed
 
 
 

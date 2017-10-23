@@ -19,10 +19,14 @@ import os
 
 # 1、将A文件复制到B文件中去(保持原来格式)
 def ba_fileManager_copyFile (inputFile, outputFile, encoding):
-    fin = open(inputFile, 'r', encoding=encoding) #以读的方式打开文件
-    fout = open(outputFile, 'w', encoding=encoding) #以写得方式打开文件
-    for eachLiine in fin.readlines(): #读取文件的每一行
-        line = eachLiine.strip() #去除每行的首位空格
+    # 以读的方式打开文件
+    fin = open(inputFile, 'r', encoding = encoding)
+    # 以写得方式打开文件
+    fout = open(outputFile, 'w', encoding = encoding)
+    # 读取文件的每一行
+    for eachLiine in fin.readlines():
+        # 去除每行的首位空格
+        line = eachLiine.strip()
         fout.write(line + '\n')
     fin.close()
     fout.close()
