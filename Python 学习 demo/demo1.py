@@ -495,9 +495,11 @@ print(str)
 
 
 # 获取当前的目录
-path = BAKit_BAFileManager.ba_fileManager_getCurrentPath()
+path = BAKit_BAFileManager.ba_fileManager_getcwd()
 
-
+# BAKit_BAFileManager.ba_fileManager_mkdir('newFolder')
+BAKit_BAFileManager.ba_fileManager_chdir('newFolder')
+path = BAKit_BAFileManager.ba_fileManager_getcwd()
 
 
 

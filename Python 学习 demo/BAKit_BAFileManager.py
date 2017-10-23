@@ -54,14 +54,19 @@ def ba_fileManager_removeFile(fileName):
     return
 
 # 6、新建文件夹
-def ba_fileManager_addNewFolder(folderName):
+def ba_fileManager_mkdir(folderName):
     os.mkdir(folderName)
     return
 
 # 7、获取当前文件的目录
-def ba_fileManager_getCurrentPath():
+def ba_fileManager_getcwd():
     path = os.getcwd()
     print('当前路径：', path)
+    return path
+
+# 8、进入指定目录
+def ba_fileManager_chdir(newPath):
+    path = os.chdir(newPath)
     return path
 
 
