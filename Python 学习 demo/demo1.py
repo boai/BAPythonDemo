@@ -490,6 +490,8 @@ os.getcwd()
 str = BAKit_BAFileManager.ba_fileManager_read('test.txt')
 print(str)
 
+# BAKit_BAFileManager.ba_fileManager_rename('test.txt', 'test2.txt')
+# BAKit_BAFileManager.ba_fileManager_remove('test.txt')
 
 
 
