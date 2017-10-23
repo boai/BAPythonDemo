@@ -5,8 +5,9 @@
 @author: 博爱
 @contact: QQ：137361770
 @software: PyCharm
-@file: BAKit_Common.py
-@time: 2017/10/19 0001 13:14
+@file: BAKit_BAFileManager.py
+@blog：http://boaihome.com
+@time: 2017/10/20 0001 13:14
 """
 
 '''

@@ -6,6 +6,7 @@
 @contact: QQ：137361770
 @software: PyCharm
 @file: BAKit_BAFileManager.py
+@blog：http://boaihome.com
 @time: 2017/10/20 0001 13:14
 """
 
@@ -45,6 +46,6 @@ def func():
 
 
 # if __name__ == '__main__':
-#     ba_fileManager_copyFile('../data/test1.txt', '../data/text.txt','UTF-8')
+#     ba_fileManager_copyFile('test1.txt', 'text.txt','UTF-8')
 #     contents = ba_fileManager_readFile_list('../dict/time.dict','UTF-8')
 #     print(contents)
