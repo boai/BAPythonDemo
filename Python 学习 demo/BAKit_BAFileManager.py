@@ -69,6 +69,12 @@ def ba_fileManager_chdir(newPath):
     path = os.chdir(newPath)
     return path
 
+# 9、删除指定目录
+def ba_fileManager_rmdir(newPath):
+    path = os.rmdir(newPath)
+    return path
+
+
 
 
 def func():

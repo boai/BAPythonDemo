@@ -498,9 +498,10 @@ print(str)
 path = BAKit_BAFileManager.ba_fileManager_getcwd()
 
 # BAKit_BAFileManager.ba_fileManager_mkdir('newFolder')
-BAKit_BAFileManager.ba_fileManager_chdir('newFolder')
-path = BAKit_BAFileManager.ba_fileManager_getcwd()
+# BAKit_BAFileManager.ba_fileManager_chdir('newFolder')
+# path = BAKit_BAFileManager.ba_fileManager_getcwd()
 
+BAKit_BAFileManager.ba_fileManager_rmdir('newFolder')
 
 
 
