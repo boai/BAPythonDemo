@@ -38,7 +38,7 @@ def ba_fileManager_readFile_list(inputFile, encoding):
     return results
 
 # 3、读取文件，返回文件内容
-def ba_fileManager_read(filePath):
+def ba_fileManager_readFile(filePath):
     with open(filePath, 'r+', encoding = 'UTF-8') as f:
         str = f.read()
     return str.strip().replace('\ufeff', '')
@@ -49,9 +49,20 @@ def ba_fileManager_rename(oldName, newName):
     return
 
 # 5、删除文件
-def ba_fileManager_remove(fileName):
+def ba_fileManager_removeFile(fileName):
     os.remove(fileName)
     return
+
+# 6、新建文件夹
+def ba_fileManager_addNewFolder(folderName):
+    os.mkdir(folderName)
+    return
+
+# 7、获取当前文件的目录
+def ba_fileManager_getCurrentPath():
+    path = os.getcwd()
+    print('当前路径：', path)
+    return path
 
 
 

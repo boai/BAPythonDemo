@@ -487,15 +487,15 @@ fo.closed
 # 给出当前的目录
 os.getcwd()
 
-str = BAKit_BAFileManager.ba_fileManager_read('test.txt')
+str = BAKit_BAFileManager.ba_fileManager_readFile('test.txt')
 print(str)
 
 # BAKit_BAFileManager.ba_fileManager_rename('test.txt', 'test2.txt')
 # BAKit_BAFileManager.ba_fileManager_remove('test.txt')
 
 
-
-
+# 获取当前的目录
+path = BAKit_BAFileManager.ba_fileManager_getCurrentPath()
 
 
 

@@ -10,15 +10,15 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Python__demo$demo1.coverage" NAME="demo1 Coverage Results" MODIFIED="1508731158169" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Python__demo$demo1.coverage" NAME="demo1 Coverage Results" MODIFIED="1508738977803" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="demo1.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/demo1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="495" column="0" lean-forward="true" selection-start-line="495" selection-start-column="0" selection-end-line="495" selection-end-column="0" />
+            <state relative-caret-position="261">
+              <caret line="498" column="0" lean-forward="true" selection-start-line="498" selection-start-column="0" selection-end-line="498" selection-end-column="0" />
               <folding>
                 <element signature="e#1#12#0" expanded="true" />
               </folding>
@@ -41,8 +41,8 @@
       <file leaf-file-name="BAKit_BAFileManager.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BAKit_BAFileManager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+            <state relative-caret-position="359">
+              <caret line="66" column="0" lean-forward="true" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -72,8 +72,8 @@
       <list>
         <option value="$PROJECT_DIR$/test.txt" />
         <option value="$PROJECT_DIR$/BAKit_Common.py" />
-        <option value="$PROJECT_DIR$/BAKit_BAFileManager.py" />
         <option value="$PROJECT_DIR$/demo1.py" />
+        <option value="$PROJECT_DIR$/BAKit_BAFileManager.py" />
       </list>
     </option>
   </component>
@@ -345,6 +345,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test2.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/BAKit_Common.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-40">
@@ -355,26 +363,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BAKit_BAFileManager.py">
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2017.2/python_stubs/-2010535109/posix.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+        <state relative-caret-position="138">
+          <caret line="146" column="4" lean-forward="false" selection-start-line="146" selection-start-column="4" selection-end-line="146" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test2.txt">
+    <entry file="file://$PROJECT_DIR$/BAKit_BAFileManager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="359">
+          <caret line="66" column="0" lean-forward="true" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/demo1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="495" column="0" lean-forward="true" selection-start-line="495" selection-start-column="0" selection-end-line="495" selection-end-column="0" />
+        <state relative-caret-position="261">
+          <caret line="498" column="0" lean-forward="true" selection-start-line="498" selection-start-column="0" selection-end-line="498" selection-end-column="0" />
           <folding>
             <element signature="e#1#12#0" expanded="true" />
           </folding>
