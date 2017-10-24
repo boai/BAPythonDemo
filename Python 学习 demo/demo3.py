@@ -1,8 +1,11 @@
 
 
 class BAParent:
+
+    # 公开变量
     parentAttr = 100
 
+    # 私有变量
     __money = 20
 
     def __init__(self):
@@ -41,5 +44,8 @@ c.getAttr()          # 再次调用父类的方法
 c.testFunction()
 
 print('私有变量：', c.__money)
+
+
+
 
 
