@@ -21,10 +21,20 @@ receivers = ['sunboyan@outlook.com']
 mail_title = 'Email test by Python'
 mail_content = 'welcome to boaihome!'
 
-def ba_smtp_sendEmail(email_title, email_content, email_sender, email_receiver, email_host, email_user, email_pwd):
+'''
+email_title：邮件标题
+email_content：邮件内容
+email_type：邮件类型，例如：纯中文内容传'plain'，如果是 HTML 标签传'html'
+email_sender：发送者
+email_receiver：接收者
+email_host：第三方 SMTP 服务，例如：'smtp.qq.com'
+email_user：主发送方
+email_pwd：授权密码，非登录密码
+'''
+def ba_smtp_sendEmail(email_title, email_content, email_type, email_sender, email_receiver, email_host, email_user, email_pwd):
 
     # 内容, 格式, 编码
-    message = MIMEText(email_content, 'plain', 'utf-8')
+    message = MIMEText(email_content, email_type, 'utf-8')
     message['From'] = '{}'.format(email_sender)
     message['To'] = ','.join(email_receiver)
     message['Subject'] = email_title
@@ -47,7 +57,7 @@ if __name__ == '__main__':
     i = 0
     while i < 3:
         title = ('%s%d'%(mail_title, i))
-        ba_smtp_sendEmail(title, mail_content, sender, receivers, mail_host,mail_user, mail_pwd)
+        ba_smtp_sendEmail(title, mail_content, 'plain', sender, receivers, mail_host,mail_user, mail_pwd)
         i += 1
     print('邮件发送完毕！结束循环！')
 
