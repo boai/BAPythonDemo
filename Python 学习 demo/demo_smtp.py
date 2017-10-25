@@ -5,7 +5,8 @@ from email.header import Header
 from email.mime.text import MIMEText
 # 发送带附件的邮件 需要导入的头文件
 from email.mime.multipart import MIMEMultipart
-
+# HTML 文本中添加图片
+from email.mime.image import MIMEImage
 
 # 第三方 SMTP 服务
 # SMTP服务器
@@ -54,19 +55,59 @@ def ba_smtp_sendEmail(email_title, email_content, email_type, email_sender, emai
         print("Error: 无法发送邮件")
         print(e)
 
+def ba_smtp_sendEmail_htmlImage(email_title, email_content, email_type, email_sender, email_receiver, email_host, email_user, email_pwd):
+    msgRoot = MIMEMultipart('related')
+    msgRoot['From'] = Header("W3Cschool教程", 'utf-8')
+    msgRoot['To'] = Header("测试", 'utf-8')
+    subject = 'Python SMTP 邮件测试'
+    msgRoot['Subject'] = Header(subject, 'utf-8')
+
+    msgAlternative = MIMEMultipart('alternative')
+    msgRoot.attach(msgAlternative)
+
+    mail_msg = """
+    <p>Python 邮件发送测试...html 图片</p>
+    <p><a href="http://www.baidu.com">博爱链接</a></p>
+    <p>图片演示：</p>
+    <p><img src="cid:image1"></p>
+    """
+    msgAlternative.attach(MIMEText(mail_msg, 'html', 'utf-8'))
+
+    # 指定图片为当前目录
+    fp = open('02_1600x900.jpg', 'rb')
+    msgImage = MIMEImage(fp.read())
+    fp.close()
+
+    # 定义图片 ID，在 HTML 文本中引用
+    msgImage.add_header('Content-ID', '<image1>')
+    msgRoot.attach(msgImage)
+
+    try:
+        # 启用SSL发信, 端口一般是465
+        smtpObj = smtplib.SMTP_SSL(email_host, 465)
+        # 登录验证
+        smtpObj.login(email_user, email_pwd)
+        # 发送
+        smtpObj.sendmail(email_sender, email_receiver, msgRoot.as_string())
+        print('邮件发送成功!')
+    except smtplib.SMTPException as e:
+        print("Error: 无法发送邮件")
+        print(e)
+
+
 def ba_smtp_sendEmail_attach(email_title, email_content, email_type, email_sender, email_receiver, email_host, email_user, email_pwd):
 
     # 创建一个带附件的实例
     message = MIMEMultipart()
     # message['From'] = '{}'.format(email_sender)
-    message['From'] = Header('137361770@qq.com', 'utf-8')
+    message['From'] = Header('FROM TEST', 'utf-8')
     # message['To'] = ','.join(email_receiver)
     message['To'] = Header('sunboyan@outlook.com', 'utf-8')
     # message['Subject'] = email_title
-    message['Subject'] = Header(email_title, 'utf-8')
+    message['Subject'] = Header('TITLE', 'utf-8')
 
     # 邮件正文内容
-    message.attach(MIMEText(email_content, email_type, 'utf-8'))
+    message.attach(MIMEText('CONTENT TEST', email_type, 'utf-8'))
 
     # 构造附件1，传送当前目录下的 test.txt 文件
     att1 = MIMEText(open('test.txt', 'rb').read(), 'base64', 'utf-8')
@@ -90,10 +131,13 @@ def ba_smtp_sendEmail_attach(email_title, email_content, email_type, email_sende
 
 if __name__ == '__main__':
 
-    i = 0
-    while i < 3:
-        title = ('%s%d'%(mail_title, i))
-        ba_smtp_sendEmail(title, mail_content, 'plain', sender, receivers, mail_host,mail_user, mail_pwd)
-        i += 1
-    print('邮件发送完毕！结束循环！')
+    # i = 0
+    # while i < 2:
+    #     title = ('%s%d'%(mail_title, i))
+    #     ba_smtp_sendEmail(title, mail_content, 'plain', sender, receivers, mail_host,mail_user, mail_pwd)
+    #     i += 1
+    # print('邮件发送完毕！结束循环！')
+
+    ba_smtp_sendEmail_htmlImage(mail_title, mail_content, 'html', sender, receivers, mail_host, mail_user, mail_pwd)
+
 

@@ -21,7 +21,7 @@ mail_content = """
 <p><a href="https://www.baidu.com">这是一个链接</a></p>
 """
 
-# demo_smtp.ba_smtp_sendEmail(mail_title, mail_content, 'html', sender, receivers, mail_host, mail_user, mail_pwd)
+demo_smtp.ba_smtp_sendEmail(mail_title, mail_content, 'html', sender, receivers, mail_host, mail_user, mail_pwd)
 
-demo_smtp.ba_smtp_sendEmail_attach(mail_title, mail_content, 'plain', sender, receivers, mail_host, mail_user, mail_pwd)
+# demo_smtp.ba_smtp_sendEmail_attach(mail_title, mail_content, 'plain', sender, receivers, mail_host, mail_user, mail_pwd)
 
