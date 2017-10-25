@@ -7,7 +7,7 @@ mail_host = 'smtp.qq.com'
 # 用户名
 mail_user = '137361770@qq.com'
 # 授权密码，非登录密码
-mail_pwd = 'twmryjnhaigabjde'
+mail_pwd = 'qhbibauvewgebjbi'
 
 # 发件人邮箱(最好写全, 不然会失败)
 sender = '137361770@qq.com'
@@ -17,11 +17,9 @@ receivers = ['sunboyan@outlook.com']
 
 mail_title = 'Email test by Python'
 mail_content = """
-<p>Python 邮件发送测试【测试发送附件】...</p>
+<p>Python 邮件发送测试【内容HTML 格式】...</p>
 <p><a href="https://www.baidu.com">这是一个链接</a></p>
 """
 
-# demo_smtp.ba_smtp_sendEmail(mail_title, mail_content, 'html', sender, receivers, mail_host, mail_user, mail_pwd)
-
-demo_smtp.ba_smtp_sendEmail_attach(mail_title, mail_content, 'plain', sender, receivers, mail_host, mail_user, mail_pwd)
+demo_smtp.ba_smtp_sendEmail(mail_title, mail_content, 'html', sender, receivers, mail_host, mail_user, mail_pwd)
 

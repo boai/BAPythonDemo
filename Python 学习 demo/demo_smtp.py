@@ -3,6 +3,9 @@ import smtplib
 
 from email.header import Header
 from email.mime.text import MIMEText
+# 发送带附件的邮件 需要导入的头文件
+from email.mime.multipart import MIMEMultipart
+
 
 # 第三方 SMTP 服务
 # SMTP服务器
@@ -46,7 +49,40 @@ def ba_smtp_sendEmail(email_title, email_content, email_type, email_sender, emai
         smtpObj.login(email_user, email_pwd)
         # 发送
         smtpObj.sendmail(email_sender, email_receiver, message.as_string())
-        print('mail has been send successfully!')
+        print('邮件发送成功!')
+    except smtplib.SMTPException as e:
+        print("Error: 无法发送邮件")
+        print(e)
+
+def ba_smtp_sendEmail_attach(email_title, email_content, email_type, email_sender, email_receiver, email_host, email_user, email_pwd):
+
+    # 创建一个带附件的实例
+    message = MIMEMultipart()
+    # message['From'] = '{}'.format(email_sender)
+    message['From'] = Header('137361770@qq.com', 'utf-8')
+    # message['To'] = ','.join(email_receiver)
+    message['To'] = Header('sunboyan@outlook.com', 'utf-8')
+    # message['Subject'] = email_title
+    message['Subject'] = Header(email_title, 'utf-8')
+
+    # 邮件正文内容
+    message.attach(MIMEText(email_content, email_type, 'utf-8'))
+
+    # 构造附件1，传送当前目录下的 test.txt 文件
+    att1 = MIMEText(open('test.txt', 'rb').read(), 'base64', 'utf-8')
+    att1["Content-Type"] = 'application/octet-stream'
+    # 这里的filename可以任意写，写什么名字，邮件中显示什么名字
+    att1["Content-Disposition"] = 'attachment; filename="test.txt"'
+    message.attach(att1)
+
+    try:
+        # 启用SSL发信, 端口一般是465
+        smtpObj = smtplib.SMTP_SSL(email_host, 465)
+        # 登录验证
+        smtpObj.login(email_user, email_pwd)
+        # 发送
+        smtpObj.sendmail(email_sender, email_receiver, message.as_string())
+        print('邮件发送成功!')
     except smtplib.SMTPException as e:
         print("Error: 无法发送邮件")
         print(e)
