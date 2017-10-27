@@ -20,6 +20,7 @@ class myThread(threading.Thread):
         process_data(self.name, self.q)
         print('退出线程：', self.name)
 
+
 def process_data(threadName, q):
 
     while not exitFlag:
