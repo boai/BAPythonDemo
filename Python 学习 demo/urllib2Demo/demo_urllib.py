@@ -145,19 +145,46 @@ except urllib2.HTTPError, e:
     print e.reason
 '''
 
-url = 'http://blog.csdn.net/cqcre'
+# url = 'http://blog.csdn.net/cqcre'
+# request = urllib.request.Request(url)
+# try:
+#     urllib.request.urlopen(request)
+#     print('连接成功：', url)
+# except urllib.request.HTTPError as e:
+#     print('错误码：', e.code)
+#     print('错误原因：', e.reason)
+
+'''
+我们知道，HTTPError的父类是URLError，根据编程经验，父类的异常应当写到子类异常的后面，
+如果子类捕获不到，那么可以捕获父类的异常，所以上述的代码可以这么改写
+'''
+# url = 'http://blog.csdn.net/cqcre'
+# request = urllib.request.Request(url)
+# try:
+#     urllib.request.urlopen(request)
+# except urllib.request.HTTPError as e:
+#     print('错误码：', e.code)
+# except urllib.request.URLError as e:
+#     print('错误原因：', e.reason)
+# else:
+#     print('连接成功：', url)
+
+'''
+如果捕获到了HTTPError，则输出code，不会再处理URLError异常。如果发生的不是HTTPError，则会去捕获URLError异常，输出错误原因。
+
+另外还可以加入 hasattr属性提前对属性进行判断，代码改写如下:
+'''
+url = 'http://blog.csdn.net/cqcrea'
 request = urllib.request.Request(url)
 try:
     urllib.request.urlopen(request)
-    print('连接成功：', url)
 except urllib.request.HTTPError as e:
-    print('错误码：', e.code)
-    print('错误原因：', e.reason)
-
-
-
-
-
-
+    if hasattr(e, 'code'):
+        print('错误码：', e.code)
+except urllib.request.URLError as e:
+    if hasattr(e, 'reason'):
+        print('错误原因：', e.reason)
+else:
+    print('连接成功：', url)
 
 
