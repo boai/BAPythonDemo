@@ -50,8 +50,42 @@ res = urllib2.urlopen('http://www.baidu.com')
 '''
 
 # import urllib
-http_handler = urllib.request.HTTPHandler()
-https_handler = urllib.request.HTTPSHandler(debuglevel=1)
-opener = urllib.request.build_opener(http_handler, https_handler)
-urllib.request.install_opener(opener)
-urllib.request.urlopen("http://www.baidu.com")
+# http_handler = urllib.request.HTTPHandler()
+# https_handler = urllib.request.HTTPSHandler(debuglevel=1)
+# opener = urllib.request.build_opener(http_handler, https_handler)
+# urllib.request.install_opener(opener)
+# response = urllib.request.urlopen("http://www.baidu.com")
+# print('抓取结果：', response.read())
+
+
+'''
+1.URLError
+
+首先解释下URLError可能产生的原因：
+
+网络无连接，即本机无法上网
+连接不到特定的服务器
+服务器不存在
+'''
+
+# requset = urllib2.Request('http://www.xxxxx.com')
+# try:
+#     urllib2.urlopen(requset)
+# except urllib2.URLError, e:
+#     print
+#     e.reason
+
+request = urllib.request.Request('http://www.**.com')
+try:
+    urllib.request.urlopen(request)
+except urllib.request.URLError as e:
+    print(e.reason)
+'''
+上面打印结果：[Errno 8] nodename nor servname provided, or not known
+'''
+
+
+
+
+
+

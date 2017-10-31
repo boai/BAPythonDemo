@@ -14,7 +14,7 @@
     <SUITE FILE_PATH="coverage/Python__demo$demo1.coverage" NAME="demo1 Coverage Results" MODIFIED="1508744659002" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Python__demo$demo_urllib2.coverage" NAME="demo_urllib2 Coverage Results" MODIFIED="1509356586930" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/urllib2Demo" />
     <SUITE FILE_PATH="coverage/Python__demo$demo_threadQueue.coverage" NAME="demo_threadQueue Coverage Results" MODIFIED="1509086258047" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Thread" />
-    <SUITE FILE_PATH="coverage/Python__demo$demo_urllib.coverage" NAME="demo_urllib Coverage Results" MODIFIED="1509357916122" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/urllib2Demo" />
+    <SUITE FILE_PATH="coverage/Python__demo$demo_urllib.coverage" NAME="demo_urllib Coverage Results" MODIFIED="1509413480751" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/urllib2Demo" />
     <SUITE FILE_PATH="coverage/Python__demo$demo_json.coverage" NAME="demo_json Coverage Results" MODIFIED="1509094534019" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Json" />
     <SUITE FILE_PATH="coverage/Python__demo$demo_smtp.coverage" NAME="demo_smtp Coverage Results" MODIFIED="1508918340208" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Python__demo$BAEmployee.coverage" NAME="BAEmployee Coverage Results" MODIFIED="1508745978137" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -34,11 +34,21 @@
       <file leaf-file-name="demo_urllib.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/urllib2Demo/demo_urllib.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+            <state relative-caret-position="254">
+              <caret line="82" column="3" lean-forward="true" selection-start-line="82" selection-start-column="3" selection-end-line="82" selection-end-column="3" />
               <folding>
                 <element signature="e#1#20#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="error.py" pinned="false" current-in-tab="false">
+        <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/urllib/error.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="140">
+              <caret line="18" column="6" lean-forward="false" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -356,7 +366,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/demo_smtp.py" />
     <entry file="file://$PROJECT_DIR$/demo_smtp_enclosure.py" />
     <entry file="file://$PROJECT_DIR$/demo_smtp_html.py" />
     <entry file="file://$PROJECT_DIR$/demo_socket.py" />
@@ -519,10 +528,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/urllib/error.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="18" column="6" lean-forward="false" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/urllib2Demo/demo_urllib.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+        <state relative-caret-position="254">
+          <caret line="82" column="3" lean-forward="true" selection-start-line="82" selection-start-column="3" selection-end-line="82" selection-end-column="3" />
           <folding>
             <element signature="e#1#20#0" expanded="true" />
           </folding>
