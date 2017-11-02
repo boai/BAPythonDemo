@@ -10,7 +10,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Python__demo$demo_BeautifulSoup.coverage" NAME="demo_BeautifulSoup Coverage Results" MODIFIED="1509594906776" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Beautiful Soup" />
+    <SUITE FILE_PATH="coverage/Python__demo$demo_BeautifulSoup.coverage" NAME="demo_BeautifulSoup Coverage Results" MODIFIED="1509606866793" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Beautiful Soup" />
     <SUITE FILE_PATH="coverage/Python__demo$demo4.coverage" NAME="demo4 Coverage Results" MODIFIED="1508826067910" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Python__demo$demo1.coverage" NAME="demo1 Coverage Results" MODIFIED="1508744659002" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Python__demo$demo_urllib2.coverage" NAME="demo_urllib2 Coverage Results" MODIFIED="1509356586930" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/urllib2Demo" />
@@ -61,8 +61,8 @@
       <file leaf-file-name="demo_BeautifulSoup.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Beautiful Soup/demo_BeautifulSoup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="567" column="0" lean-forward="true" selection-start-line="567" selection-start-column="0" selection-end-line="567" selection-end-column="0" />
+            <state relative-caret-position="238">
+              <caret line="661" column="0" lean-forward="true" selection-start-line="661" selection-start-column="0" selection-end-line="661" selection-end-column="0" />
               <folding>
                 <element signature="e#151#180#0" expanded="true" />
               </folding>
@@ -83,6 +83,7 @@
     <findStrings>
       <find>if not</find>
       <find>当期</find>
+      <find>data-foo</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -578,8 +579,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Beautiful Soup/demo_BeautifulSoup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="567" column="0" lean-forward="true" selection-start-line="567" selection-start-column="0" selection-end-line="567" selection-end-column="0" />
+        <state relative-caret-position="238">
+          <caret line="661" column="0" lean-forward="true" selection-start-line="661" selection-start-column="0" selection-end-line="661" selection-end-column="0" />
           <folding>
             <element signature="e#151#180#0" expanded="true" />
           </folding>

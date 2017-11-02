@@ -21,6 +21,7 @@ html = """
 <a href="http://example.com/lacie" class="sister" id="link2">Lacie</a> and
 <a href="http://example.com/tillie" class="sister" id="link3">Tillie</a>;
 and they lived at the bottom of a well.</p>
+<div data-foo="value">foo!</div>
 <p class="story">...</p>
 """
 
@@ -553,7 +554,7 @@ soup.find_all(href=re.compile('elsie'), id='link1')：
 soup.find_all('a', class_='sister')：
  [<a class="sister" href="http://example.com/elsie" id="link1"><!-- Elsie --></a>, <a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>, <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>]
 '''
-print("soup.find_all('a', class_='sister')：\n", soup.find_all('a', class_='sister'))
+# print("soup.find_all('a', class_='sister')：\n", soup.find_all('a', class_='sister'))
 
 '''
 有些tag属性在搜索不能使用,比如HTML5中的 data-* 属性
@@ -563,26 +564,100 @@ data_soup.find_all(data-foo="value")
 
 但是可以通过 find_all() 方法的 attrs 参数定义一个字典参数来搜索包含特殊属性的tag
 
+soup.find_all(attrs={'data-foo':'value'})：
+ [<div data-foo="value">foo!</div>]
+'''
+# print("soup.find_all(attrs={'data-foo':'value'})：\n", soup.find_all(attrs={'data-foo':'value'}))
 
+'''
+text 参数
+
+通过 text 参数可以搜搜文档中的字符串内容.与 name 参数的可选值一样, 
+text 参数接受 字符串 , 正则表达式 , 列表, True
+
+soup.find_all(text='Elsie')：
+ []
+soup.find_all(text=['Tillie', 'Elsie', 'Lacie']：
+ ['Lacie', 'Tillie']
+soup.find_all(text=re.compile('Dormouse'))：
+ ["The Dormouse's story", "The Dormouse's story"]
+'''
+
+print("soup.find_all(text='Elsie')：\n", soup.find_all(text='Elsie'))
+print("soup.find_all(text=['Tillie', 'Elsie', 'Lacie']：\n", soup.find_all(text=['Tillie', 'Elsie', 'Lacie']))
+print("soup.find_all(text=re.compile('Dormouse'))：\n", soup.find_all(text=re.compile('Dormouse')))
+
+'''
+limit 参数
+
+find_all() 方法返回全部的搜索结构,如果文档树很大那么搜索会很慢.如果我们不需要全部结果,可以使用 limit 参数限制返回结果的数量.效果与SQL中的limit关键字类似,当搜索到的结果数量达到 limit 的限制时,就停止搜索返回结果.
+
+文档树中有3个tag符合搜索条件,但结果只返回了2个,因为我们限制了返回数量
+
+soup.find_all('a', limit=2)：
+ [<a class="sister" href="http://example.com/elsie" id="link1"><!-- Elsie --></a>, <a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>]
+'''
+# print("soup.find_all('a', limit=2)：\n", soup.find_all('a', limit=2))
+
+'''
+recursive 参数
+
+调用tag的 find_all() 方法时,Beautiful Soup会检索当前tag的所有子孙节点,
+如果只想搜索tag的直接子节点,可以使用参数 recursive=False .
+
+soup.find_all('title')：
+ [<title>The Dormouse's story</title>]
+soup.find_all('title')：
+ []
+'''
+# print("soup.find_all('title')：\n", soup.find_all('title'))
+# print("soup.find_all('title')：\n", soup.find_all('title', recursive=False))
+
+'''
+（2）find( name , attrs , recursive , text , **kwargs )
+
+它与 find_all() 方法唯一的区别是 find_all() 方法的返回结果是值包含一个元素的列表,而 find() 方法直接返回结果
+
+（3）find_parents()  find_parent()
+
+find_all() 和 find() 只搜索当前节点的所有子节点,孙子节点等. find_parents() 和 find_parent() 用来搜索当前节点的父辈节点,搜索方法与普通tag的搜索方法相同,搜索文档搜索文档包含的内容
+
+（4）find_next_siblings()  find_next_sibling()
+
+这2个方法通过 .next_siblings 属性对当 tag 的所有后面解析的兄弟 tag 节点进行迭代, find_next_siblings() 方法返回所有符合条件的后面的兄弟节点,find_next_sibling() 只返回符合条件的后面的第一个tag节点
+
+（5）find_previous_siblings()  find_previous_sibling()
+
+这2个方法通过 .previous_siblings 属性对当前 tag 的前面解析的兄弟 tag 节点进行迭代, find_previous_siblings() 方法返回所有符合条件的前面的兄弟节点, find_previous_sibling() 方法返回第一个符合条件的前面的兄弟节点
+
+（6）find_all_next()  find_next()
+
+这2个方法通过 .next_elements 属性对当前 tag 的之后的 tag 和字符串进行迭代, find_all_next() 方法返回所有符合条件的节点, find_next() 方法返回第一个符合条件的节点
+
+（7）find_all_previous() 和 find_previous()
+
+这2个方法通过 .previous_elements 属性对当前节点前面的 tag 和字符串进行迭代, find_all_previous() 方法返回所有符合条件的节点, find_previous()方法返回第一个符合条件的节点
+
+注：以上（2）（3）（4）（5）（6）（7）方法参数用法与 find_all() 完全相同，原理均类似，在此不再赘述。
 '''
 
 
+# 8.CSS选择器
+'''
+我们在写 CSS 时，标签名不加任何修饰，类名前加点，id名前加 #，在这里我们也可以利用类似的方法来筛选元素，用到的方法是 soup.select()，返回类型是 list
 
+（1）通过标签名查找
+soup.select('title')：
+ [<title>The Dormouse's story</title>]
+soup.select('a')：
+ [<a class="sister" href="http://example.com/elsie" id="link1"><!-- Elsie --></a>, <a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>, <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>]
+soup.select('b')：
+ [<b>The Dormouse's story</b>]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+'''
+# print("soup.select('title')：\n", soup.select('title'))
+# print("soup.select('a')：\n", soup.select('a'))
+# print("soup.select('b')：\n", soup.select('b'))
 
 
 
