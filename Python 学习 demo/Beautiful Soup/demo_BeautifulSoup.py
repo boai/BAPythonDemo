@@ -10,7 +10,7 @@
 
 from bs4 import BeautifulSoup
 import bs4
-
+import re
 
 html = """
 <html><head><title>The Dormouse's story</title></head>
@@ -408,8 +408,180 @@ soup.a.next_siblings： ';\nand they lived at the bottom of a well.'
 与 .next_sibling .previous_sibling 不同，它并不是针对于兄弟节点，而是在所有节点，不分层次
 
 比如 head 节点为
+
+soup.head.next_element： <title>The Dormouse's story</title>
 '''
 print('soup.head.next_element：', soup.head.next_element)
+
+'''
+所有前后节点
+
+知识点：.next_elements .previous_elements 属性
+通过 .next_elements 和 .previous_elements 的迭代器就可以向前或向后
+访问文档的解析内容,就好像文档正在被解析一样
+
+
+'''
+# for element in soup.last_a_tag.next_elements:
+#     print('last_a_tag.next_elements：', element)
+
+
+'''
+7.搜索文档树
+
+（1）find_all( name , attrs , recursive , text , **kwargs )
+
+find_all() 方法搜索当前tag的所有tag子节点,并判断是否符合过滤器的条件
+
+1）name 参数
+
+name 参数可以查找所有名字为 name 的tag,字符串对象会被自动忽略掉
+
+A.传字符串
+
+最简单的过滤器是字符串.在搜索方法中传入一个字符串参数,
+Beautiful Soup会查找与字符串完整匹配的内容,下面的例子用于查找文档中所有的<b>标签
+
+soup.find_all('b')： [<b>The Dormouse's story</b>]
+soup.find_all('a') [<a class="sister" href="http://example.com/elsie" id="link1"><!-- Elsie --></a>, <a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>, <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>]
+'''
+print("soup.find_all('b')：", soup.find_all('b'))
+print("soup.find_all('a')", soup.find_all('a'))
+
+'''
+B.传正则表达式
+
+如果传入正则表达式作为参数,Beautiful Soup会通过正则表达式的 match() 来匹配内容.
+下面例子中找出所有以b开头的标签,这表示<body>和<b>标签都应该被找到
+
+tag.name： body
+tag.name： b
+'''
+for tag in soup.find_all(re.compile('^b')):
+    print('tag.name：', tag.name)
+
+'''
+C.传列表
+
+如果传入列表参数,Beautiful Soup会将与列表中任一元素匹配的内容返回.
+下面代码找到文档中所有<a>标签和<b>标签
+
+soup.find_all(['a', 'b'])： [<b>The Dormouse's story</b>, <a class="sister" href="http://example.com/elsie" id="link1"><!-- Elsie --></a>, <a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>, <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>]
+'''
+# print("soup.find_all(['a', 'b'])：", soup.find_all(['a', 'b']))
+
+'''
+D.传 True
+
+True 可以匹配任何值,下面代码查找到所有的tag,但是不会返回字符串节点
+
+tag.name： html
+tag.name： head
+tag.name： title
+tag.name： body
+tag.name： p
+tag.name： b
+tag.name： p
+tag.name： a
+tag.name： a
+tag.name： a
+tag.name： p
+'''
+# for tag in soup.find_all(True):
+#     print('tag.name：', tag.name)
+
+'''
+E.传方法
+
+如果没有合适过滤器,那么还可以定义一个方法,方法只接受一个元素参数 [4] ,如果这个方法返回 True 表示当前元素匹配并且被找到,如果不是则反回 False
+
+下面方法校验了当前元素,如果包含 class 属性却不包含 id 属性,那么将返回 True:
+
+soup.find_all(has_class_but_no_id())： [<html><head><title>The Dormouse's story</title></head>
+<body>
+<p class="boaiClass" name="boaihome"><b>The Dormouse's story</b></p>
+<p class="story">Once upon a time there were three little sisters; and their names were
+<a class="sister" href="http://example.com/elsie" id="link1"><!-- Elsie --></a>,
+<a class="sister" href="http://example.com/lacie" id="link2">Lacie</a> and
+<a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>;
+and they lived at the bottom of a well.</p>
+<p class="story">...</p>
+</body></html>, <head><title>The Dormouse's story</title></head>, <title>The Dormouse's story</title>, <body>
+<p class="boaiClass" name="boaihome"><b>The Dormouse's story</b></p>
+<p class="story">Once upon a time there were three little sisters; and their names were
+<a class="sister" href="http://example.com/elsie" id="link1"><!-- Elsie --></a>,
+<a class="sister" href="http://example.com/lacie" id="link2">Lacie</a> and
+<a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>;
+and they lived at the bottom of a well.</p>
+<p class="story">...</p>
+</body>, <p class="boaiClass" name="boaihome"><b>The Dormouse's story</b></p>, <b>The Dormouse's story</b>, <p class="story">Once upon a time there were three little sisters; and their names were
+<a class="sister" href="http://example.com/elsie" id="link1"><!-- Elsie --></a>,
+<a class="sister" href="http://example.com/lacie" id="link2">Lacie</a> and
+<a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>;
+and they lived at the bottom of a well.</p>, <a class="sister" href="http://example.com/elsie" id="link1"><!-- Elsie --></a>, <a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>, <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>, <p class="story">...</p>]
+
+'''
+
+def has_class_but_no_id():
+    return (tag.has_attr('class') and not tag.has_attr('id'))
+
+# print('soup.find_all(has_class_but_no_id())：', soup.find_all(has_class_but_no_id()))
+
+'''
+keyword 参数
+
+注意：如果一个指定名字的参数不是搜索内置的参数名,
+搜索时会把该参数当作指定名字tag的属性来搜索,
+如果包含一个名字为 id 的参数,Beautiful Soup会搜索每个tag的”id”属性
+
+soup.find_all(id='link2')： [<a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>]
+
+'''
+print("soup.find_all(id='link2')：", soup.find_all(id='link2'))
+
+'''
+使用多个指定名字的参数可以同时过滤tag的多个属性
+
+soup.find_all(href=re.compile('elsie'), id='link1')：
+ [<a class="sister" href="http://example.com/elsie" id="link1"><!-- Elsie --></a>]
+'''
+# print("soup.find_all(href=re.compile('elsie'), id='link1')：\n", soup.find_all(href=re.compile('elsie'), id='link1'))
+
+'''
+在这里我们想用 class 过滤，不过 class 是 python 的关键词，这怎么办？加个下划线就可以
+
+soup.find_all('a', class_='sister')：
+ [<a class="sister" href="http://example.com/elsie" id="link1"><!-- Elsie --></a>, <a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>, <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>]
+'''
+print("soup.find_all('a', class_='sister')：\n", soup.find_all('a', class_='sister'))
+
+'''
+有些tag属性在搜索不能使用,比如HTML5中的 data-* 属性
+data_soup = BeautifulSoup('<div data-foo="value">foo!</div>')
+data_soup.find_all(data-foo="value")
+# SyntaxError: keyword can't be an expression
+
+但是可以通过 find_all() 方法的 attrs 参数定义一个字典参数来搜索包含特殊属性的tag
+
+
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
